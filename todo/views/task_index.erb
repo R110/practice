@@ -1,0 +1,23 @@
+<% @tasks.each_with_index do | task, ind | %>
+<p><%= task.content %>
+  <% if !task.complete? %>
+  <form action="/complete_task/<%=task.id %>" method="post">
+  <button type="submit">  Complete Task # <%= ind + 1 %> </a> </button>
+  <%else%>
+  <b>------>Task Complete</b>
+  <%end%>
+  <hr>
+</form>
+
+
+<form action="/delete/<%=task.id %>" method="post">
+<button type="submit">  Delete Task # <%= ind + 1 %> </a> </button>
+
+</form>
+
+
+<% end %>
+<br>
+<hr>
+<hr>
+<a href="create_task"> Create Task NOW </a>
